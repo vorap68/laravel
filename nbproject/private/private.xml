@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/OpenServer/domains/david/app/Http/Middleware/BasketIsNotEmpty.php</file>
+            <file>file:/D:/OpenServer/domains/david/app/Models/Order.php</file>
+            <file>file:/D:/OpenServer/domains/david/resources/views/auth/admin/index.blade.php</file>
+            <file>file:/D:/OpenServer/domains/david/app/Http/Controllers/BasketController.php</file>
+            <file>file:/D:/OpenServer/domains/david/app/Models/User.php</file>
+            <file>file:/D:/OpenServer/domains/david/routes/web.php</file>
+        </group>
+    </open-files>
+</project-private>
