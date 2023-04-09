@@ -56,6 +56,11 @@ class BasketController extends Controller {
             $order->user_id = Auth::id();
             $order->save();
         }
+        
+        $product = Product::find($productId);
+        session()->flash('success','Добавлен товар'.$product->name);
+         
+        Order::changeFullSum($product->price);
           return redirect()->route('basket');
     }
     
@@ -78,6 +83,11 @@ class BasketController extends Controller {
                 $pivotRow->update();
             }
         }
+         $product = Product::find($productId);
+        session()->flash('warning','Удфлен товар'.$product->name);
+         
+        Order::changeFullSum(-$product->price);
+        
 //Laravel должен знать о сущ pivot таблицы (есть метод products()) и по этой команде
         // в таблице pivot появл нов запись с order_id и product_id
         return redirect()->route('basket');
@@ -95,7 +105,9 @@ class BasketController extends Controller {
              session()->flash('success','Заказ сохранен');
          }else{
               session()->flash('warning','Заказ НЕ сохранен');
-         }
+         }  
+         
+         Order::eraseOrderSum();
         return redirect()->route('index');
     }
 

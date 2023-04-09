@@ -3,7 +3,7 @@
 @section('title','Главная')
 @section('content')
 <div class="container">
-    <h1>Все товары</h1>
+    <h1>Все товары111</h1>
     
     <form method="GET" action="{{route("index")}}" class="border">
         <div class="filters row">

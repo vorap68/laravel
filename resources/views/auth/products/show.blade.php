@@ -55,7 +55,8 @@
 
            @if($product->isHit())
             <span class="badge badge-danger">Хит</span>
-            
+             @endif
+             
              @if($product->isRecommend())
             <span class="badge badge-warning">Рекомендуемый</span>
             @endif

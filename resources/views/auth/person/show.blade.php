@@ -25,7 +25,7 @@
                             <tr>
                                 <td> 
                                     <a href="{{route('products.show',$product)}}">
-                                       <img src="{{ Storage::url($product->image) }}">
+                                        <img height="56px" src="{{ Storage::url($product->image) }}">
                                         {{$product->name}}</a></td>>
                                 <td>{{$product->pivot->count}}</td>
                                 <td>{{$product->price}}</td>

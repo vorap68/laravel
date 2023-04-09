@@ -16,15 +16,14 @@ class BasketIsNotEmpty
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next){
+//        session()->forget('get_full_sum');
+//        session()->flush();
+//        die();
             $orderId = session('orderId');
-          
-    if (!is_null($orderId)) {
-        $order = Order::findOrFail($orderId);
-         if($order->products->count() > 0){
-             return $next($request);
+        if (!is_null($orderId) && Order::getFullSum() >0) {
+       return $next($request);
          }
-    }
-     session()->flash('warning','Корзина пуста');
+    session()->flash('warning','Корзина пуста');
         return redirect()->route('index');
     }
 }
