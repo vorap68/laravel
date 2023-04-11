@@ -55,27 +55,13 @@
                     </ul>
                     @endguest
                     @auth
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item dropdown">
-                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-                          
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout')}}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    Выйти
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout')}}" method="POST"
-                                      style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    </ul>
+                    <li class="nav-item mr-3">
+                    <a href="{{route('home')}}"> Заказы {{Auth::user()->name}}</a>
+                </li>
+                    <li class="nav-item ">
+                        <a  href="{{ route('get.logout') }}">Выйти</a>
+                            
+                    </li>
                 @endauth
                 </div>
             </div>

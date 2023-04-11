@@ -18,10 +18,14 @@
                                         <p>{{$product->price}}</p>
                                     <p>
                                     <form action="http://internet-shop.tmweb.ru/basket/add/1" method="POST">
-                                        Не доступен                                <a href="http://internet-shop.tmweb.ru/mobiles/iphone_x_64"
-                                                                                      class="btn btn-default"
+                                      @csrf
+                                        @if($product->isAvailable())<button type="submit" class="btn btn-primary" >В корзину</button>
+                                        @else <p>Товар недоступен</p>
+                                        @endif                         
+                                        <a href="http://internet-shop.tmweb.ru/mobiles/iphone_x_64"
+                                                                                      class="btn btn-success"
                                                                                       role="button">Подробнее</a>
-                                        <input type="hidden" name="_token" value="8HdYheLh7oUiALpw0zZw9Bc3bzkgYRRddRUC2uvR">            </form>
+                                          </form>
                                     </p>
                                 </div>
                             </div>

@@ -20,8 +20,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        
-                            @foreach($order->products as $product)
+                       @foreach($order->products as $product)
                             <tr>
                                 <td> 
                                     <a href="{{route('products.show',$product)}}">

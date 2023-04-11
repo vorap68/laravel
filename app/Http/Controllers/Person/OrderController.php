@@ -18,7 +18,7 @@ class OrderController extends Controller
     }
     
     public function show(Order $order) {
-        //dd(Auth::user()->orders->contains($order));
+        //dd($order);
        return view('auth.person.show',compact('order'));
     }
 }

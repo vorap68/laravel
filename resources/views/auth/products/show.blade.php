@@ -47,6 +47,9 @@
                 <td>Категория</td>
                 <td>{{ $product->category->name }}</td>
             </tr>
+            <tr><td>Количество</td>
+                <td>{{$product->count}}</td>
+            </tr>
             <tr>
                  <div class="labels">
            @if($product->isNew())
