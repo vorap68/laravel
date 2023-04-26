@@ -18,12 +18,14 @@ class BasketIsNotEmpty
     public function handle(Request $request, Closure $next){
 //        session()->forget('get_full_sum');
 //        session()->flush();
-//        die();
-            $orderId = session('orderId');
-        if (!is_null($orderId) && Order::getFullSum() >0) {
+        
+            $order = session('order');
+           
+        if (!is_null($order) && $order->getFullSum() >0) {
        return $next($request);
          }
-    session()->flash('warning','Корзина пуста');
+        session()->forget('order');
+         session()->flash('warning','Корзина пуста');
         return redirect()->route('index');
     }
 }

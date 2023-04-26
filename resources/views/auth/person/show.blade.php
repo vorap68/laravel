@@ -28,13 +28,13 @@
                                         <img height="56px" src="{{ Storage::url($product->image) }}">
                                         {{$product->name}}</a></td>>
                                 <td>{{$product->pivot->count}}</td>
-                                <td>{{$product->price}}</td>
-                                <td>{{$product->getPriceForCount()}}</td>
+                                <td>{{$product->price}} {{App\Services\CurrencyConversion::getCurrencySymbol()}}</td>
+                                <td>{{$product->getPriceForCount()}} {{App\Services\CurrencyConversion::getCurrencySymbol()}}</td>
                                 </tr>
                             @endforeach
                         <tr>
                             <td colspan="3">Общая стоимость:</td>
-                            <td>{{ $order->sum }}</td>
+                            <td>{{ $order->sum }} {{App\Services\CurrencyConversion::getCurrencySymbol()}}</td>
                         </tr>
                       
                         </tbody>

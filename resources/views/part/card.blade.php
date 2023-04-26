@@ -20,12 +20,14 @@
 
         <div class="caption">
             <h3>{{$product->name}}</h3>
-            <p>{{$product->price}}</p>
+          <p>  Цена:{{$product->price}} {{App\Services\CurrencyConversion::getCurrencySymbol()}}</p>
             <p>
             <form action="{{route('basket.add',$product->id)}}" method="post">
                 @csrf
+                @auth
                 @if($product->isAvailable())<button type="submit" class="btn btn-primary" >В корзину</button>
                 @else <p>Товар недоступен</p>
+                @endauth
                 @endif
                <a href="{{route('product',$product->id)}}" class="btn btn-success" role="button">Подробнее</a>
             </form>  

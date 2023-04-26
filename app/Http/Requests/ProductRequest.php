@@ -23,15 +23,14 @@ class ProductRequest extends FormRequest
            'code' => 'required|min:3|max:255',
              'name'=>'required|min:3|max:50',
              'description'=>'required|min:3',
-            'price'=>'required',
-            'count'=>'required|min:0',
+          
         ];
          } else {
               $rules = [
            'code' => 'required|min:3|max:255|unique:products,code',
              'name'=>'required|min:3|max:50',
              'description'=>'required|min:3|',
-                   'price'=>'required',
+                 
         ];
          }
          return $rules;

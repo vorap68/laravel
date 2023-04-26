@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
   use \Illuminate\Database\Eloquent\SoftDeletes;
+  use App\Services\CurrencyConversion;
+  use App\Models\Sku;
+  use App\Models\Property;
 
 class Product extends Model
 {
@@ -20,8 +23,17 @@ class Product extends Model
     public function category() {
         return $this->belongsTo(Category::class);
        }
-        
-         public function getPriceForCount() {
+       
+    //продукт может быть один а товарнх предложений много   
+    public function skus() {
+        return $this->hasMany(Sku::class);
+    }   
+    
+    public function properties() {
+        return $this->belongsToMany(Property::class,'property_product')->withTimestamps();
+    }
+       
+      public function getPriceForCount() {
              if(!is_null($this->pivot)){
                   return  $this->price * $this->pivot->count;
              }
@@ -53,4 +65,16 @@ class Product extends Model
        return $this->recommend === 1; 
     }
     
+    public function scopeByCode($query, $code)
+    {
+        return $query->where('code', $code);
+    }
+    
+    public function getPriceAttribute($value) {
+        return CurrencyConversion::convert($value);
+    }
+    
+    public function getCurrencyAttribute() {
+        
+    }
 }

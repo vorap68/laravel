@@ -12,20 +12,17 @@
 
 
                                 </div>
-                                <img src="http://internet-shop.tmweb.ru/storage/products/iphone_x.jpg" alt="iPhone X 64GB">
+                                <img src="{{Storage::url($product->image)}}" alt="iPhone X 64GB">
                                 <div class="caption">
                                     <h3>{{$product->name}}</h3>
-                                        <p>{{$product->price}}</p>
+                                       Цена товара <p>{{$product->price}}</p>
                                     <p>
-                                    <form action="http://internet-shop.tmweb.ru/basket/add/1" method="POST">
+                                    <form action="{{route('basket.add',$product->id)}}" method="POST">
                                       @csrf
                                         @if($product->isAvailable())<button type="submit" class="btn btn-primary" >В корзину</button>
                                         @else <p>Товар недоступен</p>
                                         @endif                         
-                                        <a href="http://internet-shop.tmweb.ru/mobiles/iphone_x_64"
-                                                                                      class="btn btn-success"
-                                                                                      role="button">Подробнее</a>
-                                          </form>
+                                       </form>
                                     </p>
                                 </div>
                             </div>

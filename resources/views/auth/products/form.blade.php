@@ -84,24 +84,25 @@
                 </div>
                 <br>
 
+                 <br>
                 <div class="input-group row">
-                    <label for="name" class="col-sm-2 col-form-label">Цена: </label>
+                    <label for="property_id" class="col-sm-2 col-form-label">Свойства: </label>
                     <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'price'])
-                        <input type="text" class="form-control" name="price" id="price"
-                               value="@isset($product){{ $product->price     }}@endisset">
+                        @include('auth.layouts.error', ['fieldName' => 'category_id'])
+                        <select name="property_id[]"  multiple>
+                            @foreach($properties as $property)
+                            <option value="{{ $property->id }}">
+<!--                                        @isset($product)
+                                        @if($product->category_id == $category->id)
+                                        selected
+                                    @endif
+                                    @endisset-->
+                                {{ $property->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <br>
-                
-                <div class="input-group row">
-                    <label for="count" class="col-sm-2 col-form-label">Кол-во: </label>
-                    <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'count'])
-                        <input type="text" class="form-control" name="count" id="count"
-                               value="@isset($product){{ $product->count     }}@endisset">
-                    </div>
-                </div>
 
                 @foreach ([
                 'hit' => 'Хит',

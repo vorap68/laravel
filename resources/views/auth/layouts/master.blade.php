@@ -20,7 +20,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#">Navbar_Admin</a>
+                <a class="navbar-brand" href="#">{{__('main.online_shop')}}:Admin</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,9 +40,14 @@
                         </li>
                       
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('basket')}}">В корзину</a>
+                            <a class="nav-link" href="{{route('property.index')}}">Свойства</a>
                         </li>
+                        
                      @endauth
+                      <li class="nav-item">
+                                 <a class="nav-link" href="{{route('locale','ru')}}"> Переключатель языка</a>
+                               
+                            </li>
                     </ul>
                     @guest
                     <ul class="nav navbar-nav navbar-right">
